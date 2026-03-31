@@ -1,58 +1,36 @@
 Simple Express File Upload API
 
-A lightweight, secure Express.js API designed for handling image uploads. This project uses the Multer middleware to manage multipart/form-data, ensuring files are validated by type and size before being stored.
+A lightweight and secure Express.js API for handling image uploads. This project uses the Multer middleware to handle multipart/form-data requests, validating file type and size before storing uploaded files.
 
-How to Install and Run
-
+🚀 Features
+File Type Filtering: Accepts only .jpg, .jpeg, .png, and .gif.
+File Size Limit: Maximum upload size is 5MB.
+Unique Filenames: Files are renamed with a timestamp to prevent overwriting.
+Auto Directory Creation: Automatically creates the uploads/ folder if it doesn’t exist.
+🛠 Installation & Setup
 1. Prerequisites
 
-Make sure you have Node.js installed on your computer.
+Make sure Node.js is installed on your system.
 
-2. Open terminal and go to project folder
-
+2. Clone or Navigate to Project Folder
 cd file-upload-api
-
-
-3. Install dependencies
-
+3. Install Dependencies
 npm install
-
-
-4. Start the server
-
+4. Start the Server
 npm start
 
+The server will run at: http://localhost:3000
 
-The server will be running at: http://localhost:3000
-
-API Usage
-
+📤 API Usage
 Upload an Image
-
-To upload a file, send a POST request to the /upload endpoint.
-
 Endpoint: POST /upload
 Content-Type: multipart/form-data
-
-Parameter
-
-Type
-
-Description
-
-image
-
-File
-
-The image file to upload (jpeg, jpg, png, gif)
-
-Example using cURL:
-
+Parameters
+Parameter	Type	Description
+image	File	The image file to upload (.jpeg, .jpg, .png, .gif)
+Example cURL Request
 curl -X POST -F "image=@/path/to/your/photo.jpg" http://localhost:3000/upload
-
-
-Example Success Response:
-
+Success Response
 {
   "message": "File uploaded successfully!",
   "file": {
@@ -63,14 +41,8 @@ Example Success Response:
     "size": 102400
   }
 }
-
-
-Security Features
-
-File Type Filtering: Only allows .jpg, .jpeg, .png, and .gif.
-
-File Size Limit: Maximum file size is restricted to 5MB.
-
-Unique Filenames: Files are renamed with a timestamp to prevent overwriting existing files.
-
-Auto-Directory Creation: Automatically creates the uploads/ folder if it doesn't exist on startup.
+🔒 Security & Validation
+Allowed File Types: .jpg, .jpeg, .png, .gif
+Max File Size: 5MB
+Filename Safety: Timestamp-based unique names
+Automatic Directory Creation: Ensures uploads/ exists before saving files
