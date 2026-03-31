@@ -84,13 +84,13 @@ Success Response:
 
 🔒 Security & Validation
 
-To prevent "glitches" and server abuse, the following rules are enforced:
+To prevent glitches and server abuse, the following rules are enforced:
 
 File Type: Only .jpg, .jpeg, .png, and .gif are accepted.
 
 Size Limit: Individual files are restricted to a maximum of 5MB.
 
-Unique Naming: Files are automatically renamed using Date.now() to prevent overwriting existing files with the same name.
+Unique Naming: Files are automatically renamed using Date.now() to prevent overwriting.
 
 Directory Safety: The script automatically creates the uploads/ folder if it is missing.
 
