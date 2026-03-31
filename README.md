@@ -1,57 +1,50 @@
-🚀 Simple Express File Upload API
+#Simple Express File Upload API
 
-A minimalist, secure Express.js API designed for handling image uploads. This project uses Multer middleware to manage multipart/form-data, ensuring files are validated by type and size before being stored.
+A lightweight, secure Express.js API designed for handling image uploads. This project uses the Multer middleware to manage multipart/form-data, ensuring files are validated by type and size before being stored.
 
-📂 Directory Structure
+#Directory Structure
 
 file-upload-api/
-├── uploads/          # Validated images are saved here
-├── node_modules/     # Installed dependencies (auto-generated)
-├── index.js          # Main Express server logic
-├── package.json      # Project metadata and dependencies
-└── README.md         # Project documentation (this file)
+  ├── uploads/          # Validated images are saved here
+  ├── node_modules/     # Installed dependencies
+  ├── index.js          # Main Express server code
+  ├── package.json      # Project settings and dependencies
+  └── README.md         # This documentation file
 
 
-🛠️ Installation & Setup
-
-Follow these steps to get your server running locally:
+How to Install and Run
 
 1. Prerequisites
 
-Ensure you have Node.js (v14 or higher) installed on your computer.
+Make sure you have Node.js installed on your computer.
 
-2. Navigate to Project
-
-Open your terminal or command prompt and enter the project folder:
+2. Open terminal and go to project folder
 
 cd file-upload-api
 
 
-3. Install Dependencies
-
-Install the required packages (Express and Multer):
+3. Install dependencies
 
 npm install
 
 
-4. Start the Server
-
-Launch the API:
+4. Start the server
 
 npm start
 
 
-The server will be active at: http://localhost:3000
+The server will be running at: http://localhost:3000
 
-🚀 API Reference
+API Usage
 
 Upload an Image
 
-Endpoint: POST /upload
+To upload a file, send a POST request to the /upload endpoint.
 
+Endpoint: POST /upload
 Content-Type: multipart/form-data
 
-Field
+Parameter
 
 Type
 
@@ -59,41 +52,35 @@ Description
 
 image
 
-file
+File
 
-The image file to upload (Required)
+The image file to upload (jpeg, jpg, png, gif)
 
 Example using cURL:
 
 curl -X POST -F "image=@/path/to/your/photo.jpg" http://localhost:3000/upload
 
 
-Success Response:
+Example Success Response:
 
 {
   "message": "File uploaded successfully!",
   "file": {
     "fieldname": "image",
     "originalname": "photo.jpg",
-    "filename": "1715832000000.jpg",
-    "path": "uploads/1715832000000.jpg",
+    "filename": "1698765432123.jpg",
+    "path": "uploads/1698765432123.jpg",
     "size": 102400
   }
 }
 
 
-🔒 Security & Validation
+Security Features
 
-To prevent glitches and server abuse, the following rules are enforced:
+File Type Filtering: Only allows .jpg, .jpeg, .png, and .gif.
 
-File Type: Only .jpg, .jpeg, .png, and .gif are accepted.
+File Size Limit: Maximum file size is restricted to 5MB.
 
-Size Limit: Individual files are restricted to a maximum of 5MB.
+Unique Filenames: Files are renamed with a timestamp to prevent overwriting existing files.
 
-Unique Naming: Files are automatically renamed using Date.now() to prevent overwriting.
-
-Directory Safety: The script automatically creates the uploads/ folder if it is missing.
-
-📝 License
-
-This project is open-source and free to use.
+Auto-Directory Creation: Automatically creates the uploads/ folder if it doesn't exist on startup.
