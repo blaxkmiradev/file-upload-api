@@ -1,16 +1,6 @@
-#Simple Express File Upload API
+Simple Express File Upload API
 
 A lightweight, secure Express.js API designed for handling image uploads. This project uses the Multer middleware to manage multipart/form-data, ensuring files are validated by type and size before being stored.
-
-#Directory Structure
-
-file-upload-api/
-  ├── uploads/          # Validated images are saved here
-  ├── node_modules/     # Installed dependencies
-  ├── index.js          # Main Express server code
-  ├── package.json      # Project settings and dependencies
-  └── README.md         # This documentation file
-
 
 How to Install and Run
 
